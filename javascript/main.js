@@ -28,19 +28,27 @@ function generateRandomPrime(max) {
     return primes;
 }
 
-var prime = generateRandomPrime(160);
-console.log(prime);
+var primeOne = generateRandomPrime(1300000);
+console.log(primeOne);
 
+var primeTwo = generateRandomPrime(1200000);
+console.log(primeTwo);
 
+var arr = [primeOne, primeTwo]
+console.log(arr, '1111');
 
+var merged = [].concat.apply([], arr);
+console.log(merged, '####');
 
+var test = merged.reduce(function(previousValue, currentValue, index, array) {
+   return previousValue + currentValue;
+});
 
+console.log(test);
 
-
-
-
-
-
+// merge arrays into 1;
+// then multiply the contents insise the arrays
+// return the result; 
 
 
 
