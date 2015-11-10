@@ -1,6 +1,6 @@
 /* CURRENTLY IN: javascript/main.js */
 
-(function(){ // protect da var(s)
+(function(){ // protect da scope
 
 
 /**
@@ -10,6 +10,11 @@
 */
 
 function generateRandomPrime(max) {
+	
+	if(typeof max !== "number"){
+		return -1;
+	}
+
     var sieve = []
     ,  primes = [];
 
@@ -28,28 +33,37 @@ function generateRandomPrime(max) {
     return primes;
 }
 
-var primeOne = generateRandomPrime(1300000);
-console.log(primeOne);
-
-var primeTwo = generateRandomPrime(1200000);
-console.log(primeTwo);
-
-var arr = [primeOne, primeTwo]
-console.log(arr, '1111');
-
-var merged = [].concat.apply([], arr);
-console.log(merged, '####');
-
-var test = merged.reduce(function(previousValue, currentValue, index, array) {
-   return previousValue + currentValue;
-});
-
-console.log(test);
-
 // merge arrays into 1;
 // then multiply the contents insise the arrays
 // return the result; 
 
+var primeOne = generateRandomPrime(552);
+if(typeof primeTwo !== "number"){
+	console.log('number please');
+}
+console.log(primeOne);
+
+// if input is a length of >= 8 then it crashes the browser;
+
+var primeTwo = generateRandomPrime(220);
+if(typeof primeTwo !== "number"){
+	console.log('number please');
+}
+console.log(primeTwo);
+
+// place var primeOne and primeTwo inside an array
+var arr = [ primeOne, primeTwo ];
+console.log(arr, '1111');
+
+// merge the two arrays into 1
+var merged = [].concat.apply([], arr);
+console.log(merged, '####');
+
+// multiply the contents of the array
+var largePrimeNum = merged.reduce(function(previousValue, currentValue, index, array) {
+   return previousValue * currentValue;
+});
+console.log( largePrimeNum, 'Largest prime number' );
 
 
 })();
