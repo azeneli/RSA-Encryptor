@@ -2,7 +2,6 @@
 
 (function(){ // protect da scope
 
-
 /**
 * @generateRandomPrime
 * @param max - states the length of the array
